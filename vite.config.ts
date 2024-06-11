@@ -8,6 +8,11 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: 'autoUpdate',
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+      },
       manifest: {
         name: 'Todo App (PWA)',
         short_name: 'Todo',
@@ -18,6 +23,18 @@ export default defineConfig({
         orientation: 'portrait',
         theme_color: '#3f51b2',
         background_color: '#efeff4',
+        screenshots: [
+          {
+            src: 'screen-shot.png',
+            sizes: '709x1400',
+            form_factor: 'narrow',
+          },
+          {
+            src: 'screen-shot-wide.png',
+            sizes: '1278x1508',
+            form_factor: 'wide',
+          },
+        ],
         icons: [
           {
             src: 'icon-192x192.png',
